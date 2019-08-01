@@ -1,5 +1,3 @@
-import static java.util.Arrays.binarySearch;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,8 +8,14 @@ public class Fibonacci {
     int n = 0;
     List<Integer> list = new ArrayList<>();
     Collections.addAll(list, 0, 1);
-    for (int i = 1; list.get(i) < 350; i++) {
-      list.add((n = (list.get(i)) + (list.get(i- 1))));
+    while(true){
+      final int last = list.get(list.size() - 1);
+      final int beforeLast = list.get(list.size() - 2);
+      final int next = last + beforeLast;
+      if (next > 350) {
+        break;
+      }
+      list.add(next);
     }
     return list;
   }
@@ -19,8 +23,8 @@ public class Fibonacci {
   static Boolean isFibonacci(Integer n) {
     List<Integer> list = fibonacci();
     Collections.sort(list);
-    Integer number = Collections.binarySearch(list, new Integer(n));
-    if(number > 0 ){
+    boolean number = Collections.binarySearch(list, new Integer(n));
+    if (Integer number = Collections.binarySearch(list, new Integer(n)) > 0) {
       return true;
     }
     return false;
