@@ -1,5 +1,3 @@
-package challenge;
-
 import java.util.LinkedList;
 
 public class LinkedAlphabet {
@@ -40,11 +38,11 @@ public class LinkedAlphabet {
   }
 
   public int getAlphabetNext(int pos, String letter) {
-    int nextPos = getAlphabetActual(letter) - pos;
-    if (nextPos < 0) {
-      return alphabet.size() + nextPos;
+    int position = getAlphabetActual(letter) - pos;
+    if (position < 0) {
+      return alphabet.size() + position;
     }
-    return nextPos;
+    return position;
   }
 
   public String getLetter(int pos) {

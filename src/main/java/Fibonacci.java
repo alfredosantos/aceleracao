@@ -6,7 +6,7 @@ public class Fibonacci {
 
   static List fibonacci() {
     int n = 0;
-    List<Integer> list = new ArrayList<>();
+    final List<Integer> list = new ArrayList<>();
     Collections.addAll(list, 0, 1);
     while(true){
       final int last = list.get(list.size() - 1);
@@ -21,12 +21,10 @@ public class Fibonacci {
   }
 
   static Boolean isFibonacci(Integer n) {
-    List<Integer> list = fibonacci();
-    Collections.sort(list);
-    boolean number = Collections.binarySearch(list, new Integer(n));
-    if (Integer number = Collections.binarySearch(list, new Integer(n)) > 0) {
-      return true;
+    if (n.equals(0) | n.equals(null)) {
+      throw new IllegalArgumentException("Entrada sem valor para descriptografar.");
     }
-    return false;
+    final List<Integer> list = fibonacci();
+    return list.contains(n);
   }
 }
